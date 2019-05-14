@@ -23,4 +23,11 @@ test('When item is repaired, its durability is restored to 100', () => {
   // console.log(enhancer.repair())
 })
 
-
+test('Item name is a non-empty string', () => {
+  // original
+  expect(typeof enhancer.name).toBe('string')
+  expect(enhancer.name).toBeTruthy() // no '', null, undefined, NaN, false, 0
+  // after repair
+  expect(typeof enhancer.repair().name).toBe('string')
+  expect(enhancer.repair().name).toBeTruthy()
+})
