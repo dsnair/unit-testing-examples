@@ -15,7 +15,7 @@ In this project, you will **write unit tests and the implementation code** for a
 
 ## Minimum Viable Product
 
-After a set of interviews with the potential users of the solution, we gathered the following information about the functionality of the game's enhancing system. Your job is to add tests to `./enhancing/enhancer.spec.js` and code to `./enhancing/enhancer.js` to implement the requirements; `./enhancing/enhancer.js` exports an object that has the following methods:
+After a set of interviews with the potential users of the solution, we gathered the following information about the functionality of the game's enhancing system. Your job is to add tests to `enhancer.test.js` and code to `enhancer.js` to implement the requirements; `enhancer.js` exports an object that has the following methods:
 
 - a `repair(item)` method that accepts an `item` object and **returns a new item** with the durability restored to 100. This method is the simplest of the three and would be a **good starting point** on this project.
 - a `success(item)` method that accepts an `item` object and **returns a new item** object modified according to the rules defined by the client for enhancement success.
@@ -27,8 +27,8 @@ The following sections list information provided by the client about `items` and
 ### Items.
 
 - Items have `name`, `durability` and `enhancement`.
-- The item's `enhancement` it's a number from 0 to 20.
-- The item's `durability` it's a number from 0 to 100.
+- The item's `enhancement` is a number from 0 to 20.
+- The item's `durability` is a number from 0 to 100.
 
 ### When enhancement succeeds
 
