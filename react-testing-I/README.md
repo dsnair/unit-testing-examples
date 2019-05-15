@@ -16,6 +16,11 @@ The requirements are listed under the _Minimum Viable Product_ section below.
 
 ## Minimum Viable Product
 
+```bash
+create-react-app baseball
+yarn add react-testing-library -D
+```
+
 After a set of interviews with the potential users of the solution, we gathered the following information about the desired functionality. Not all the information provided by our clients is relevant to the design of the solution, but it's included to help understand the requirements.
 
 Your job is to design and build a React application that includes at least two components: `Display` and `Dashboard`. **For the MVP you only need to record information about a player's _"at bat"_**.
