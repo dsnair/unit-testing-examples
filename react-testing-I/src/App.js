@@ -19,6 +19,11 @@ const App = () => {
     } else setBall((ball + 1) % 5)
   }
 
+  const handleHit = () => {
+    setStrike(0)
+    setBall(0)
+  }
+
   return (
     <div className="app">
       <div className="display">
@@ -30,7 +35,7 @@ const App = () => {
       <button onClick={handleStrike}>Strike</button>
       <button onClick={handleBall}>Ball</button>
       <button>Foul</button>
-      <button>Hit</button>
+      <button onClick={handleHit}>Hit</button>
     </div>
   )
 }
