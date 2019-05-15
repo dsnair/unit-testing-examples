@@ -5,6 +5,13 @@ const App = () => {
   const [strike, setStrike] = useState(0)
   const [ball, setBall] = useState(0)
 
+  const handleStrike = () => {
+    if (strike === 3) {
+      setStrike(0)
+      setBall(0)
+    } else setStrike((strike + 1) % 4)
+  }
+
   const handleBall = () => {
     if (ball === 4) {
       setStrike(0)
@@ -20,7 +27,7 @@ const App = () => {
         <p>Strike</p>
         <p>Ball</p>
       </div>
-      <button>Strike</button>
+      <button onClick={handleStrike}>Strike</button>
       <button onClick={handleBall}>Ball</button>
       <button>Foul</button>
       <button>Hit</button>
