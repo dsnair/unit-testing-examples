@@ -5,7 +5,7 @@ In this project, you will demonstrate proficiency by writing unit tests and prod
 Some of the topics covered were:
 
 - introduction to testing a React application.
-- using the `react-testing-library` testing framework.
+- using the `react-testing-library` testing framework; [docs](https://testing-library.com/docs/react-testing-library/intro)
 - writing unit tests for React components.
 
 ## Project Description
@@ -15,6 +15,11 @@ In this project, you will **write unit tests and the implementation code** for a
 The requirements are listed under the _Minimum Viable Product_ section below.
 
 ## Minimum Viable Product
+
+```bash
+create-react-app baseball
+yarn add react-testing-library -D
+```
 
 After a set of interviews with the potential users of the solution, we gathered the following information about the desired functionality. Not all the information provided by our clients is relevant to the design of the solution, but it's included to help understand the requirements.
 

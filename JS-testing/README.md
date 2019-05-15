@@ -13,6 +13,20 @@ Some of the topics covered were:
 
 In this project, you will **write unit tests and the implementation code** for a module that helps players see the results of a _success_ or _failure_ when trying to enhance their in-game items. The requirements are listed under the _Minimum Viable Product_ section below.
 
+## Steps
+```bash
+yarn init -y # create package.json
+yarn add jest -D # install as dev dependency
+```
+
+Include the following in `package.json`
+
+```js
+ "scripts": {
+    "test": "jest --watch"
+}
+```
+
 ## Minimum Viable Product
 
 After a set of interviews with the potential users of the solution, we gathered the following information about the functionality of the game's enhancing system. Your job is to add tests to `enhancer.test.js` and code to `enhancer.js` to implement the requirements; `enhancer.js` exports an object that has the following methods:
