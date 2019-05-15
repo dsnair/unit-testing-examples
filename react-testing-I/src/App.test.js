@@ -37,3 +37,21 @@ describe('Strike Button', () => {
     expect(getByTestId('strike').innerHTML).toBe('0')
   })
 })
+
+describe('Ball Button', () => {
+  test('increments Ball score', () => {
+    const { getByTestId, getAllByText } = render(<App />)
+    fireEvent.click(getAllByText('Ball')[1])
+    expect(getByTestId('ball').innerHTML).toBe('1')
+  })
+
+  test(`Ball score doesn't exceed 3`, () => {
+    const { getByTestId, getAllByText } = render(<App />)
+    const ballBtn = getAllByText('Ball')[1]
+    fireEvent.click(ballBtn)
+    fireEvent.click(ballBtn)
+    fireEvent.click(ballBtn)
+    fireEvent.click(ballBtn)
+    expect(getByTestId('ball').innerHTML).toBe('0')
+  })
+})
