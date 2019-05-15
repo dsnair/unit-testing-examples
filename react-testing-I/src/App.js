@@ -31,8 +31,8 @@ const App = () => {
   return (
     <div className="app">
       <div className="display">
-        <p className="score">{strike}</p>
-        <p className="score">{ball}</p>
+        <p data-testid='strike' className="score">{strike}</p>
+        <p data-testid='ball' className="score">{ball}</p>
         <p>Strike</p>
         <p>Ball</p>
       </div>

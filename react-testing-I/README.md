@@ -5,7 +5,7 @@ In this project, you will demonstrate proficiency by writing unit tests and prod
 Some of the topics covered were:
 
 - introduction to testing a React application.
-- using the `react-testing-library` testing framework.
+- using the `react-testing-library` testing framework; [docs](https://testing-library.com/docs/react-testing-library/intro)
 - writing unit tests for React components.
 
 ## Project Description
