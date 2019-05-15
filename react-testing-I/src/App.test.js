@@ -84,3 +84,31 @@ describe('Hit Button', () => {
     expect(getByTestId('ball').innerHTML).toBe('0')
   })
 })
+
+describe('Foul Button', () => {
+  test('When Strike is 0, a Foul increments it to 1', () => {
+    const { getByTestId, getByText } = render(<App />)
+    const foulBtn = getByText('Foul')
+    fireEvent.click(foulBtn)
+    expect(getByTestId('strike').innerHTML).toBe('1')
+  })
+
+  test('When Strike is 1, a Foul changes it to 2', () => {
+    const { getByTestId, getAllByText, getByText } = render(<App />)
+    const foulBtn = getByText('Foul')
+    const strikeBtn = getAllByText('Strike')[1]
+    fireEvent.click(strikeBtn)
+    fireEvent.click(foulBtn)
+    expect(getByTestId('strike').innerHTML).toBe('2')
+  })
+
+  test(`When Strike is 2, a Foul doesn't change the Strike`, () => {
+    const { getByTestId, getAllByText, getByText } = render(<App />)
+    const foulBtn = getByText('Foul')
+    const strikeBtn = getAllByText('Strike')[1]
+    fireEvent.click(strikeBtn)
+    fireEvent.click(strikeBtn)
+    fireEvent.click(foulBtn)
+    expect(getByTestId('strike').innerHTML).toBe('2')
+  })
+})
