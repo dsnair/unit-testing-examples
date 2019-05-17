@@ -1,5 +1,6 @@
 const request = require('supertest')
 const app = require('../server')
+const knex = require('../db/knex.js')
 
 test('sets environment to testing', () => {
   expect(process.env.DB_ENV).toBe('testing')
@@ -14,18 +15,22 @@ describe('GET /random', () => {
   test('body is an array', async () => {
     const res = await request(app).get('/random')
     expect(res.type).toBe('application/json')
-    expect(res.body).toEqual(
-      expect.arrayContaining([{ Id: 1, words: 'backing up violet' }])
-    )
+    expect(res.body).toEqual(expect.arrayContaining([]))
   })
 })
 
 describe('POST /random', () => {
-  test('return 201 if required fields are present', async () => {
+  /*
+  beforeAll() runs once and only once in describe() block.
+  truncate() wipes the database table to empty. This is why have the test database should be different from the main database.
+  */
+  beforeAll(async () => await knex('random').truncate())
+
+  test('return 201 if new post is created', async () => {
     const res = await request(app)
       .post('/random')
       .send({
-        words: 'testing'
+        words: 'indexing ivory'
       })
       .set('Accept', 'application/json')
     expect(res.status).toBe(201)
@@ -39,5 +44,15 @@ describe('POST /random', () => {
       })
       .set('Accept', 'application/json')
     expect(res.status).toBe(422)
+  })
+
+  test('return 405 if duplicate entry is posted', async () => {
+    const res = await request(app)
+      .post('/random')
+      .send({
+        words: 'indexing ivory'
+      })
+      .set('Accept', 'application/json')
+    expect(res.status).toBe(405)
   })
 })

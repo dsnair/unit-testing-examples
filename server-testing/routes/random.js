@@ -24,7 +24,7 @@ const postWords = async (req, res) => {
     res.status(201).json(words)
   } catch (error) {
     error.code === '23505'
-      ? res.status(500).json({
+      ? res.status(405).json({
           error,
           msg: `Please enter newer words. ${req.body} already exists.`
         })

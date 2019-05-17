@@ -44,11 +44,11 @@ Optional: add Jest configurations in `package.json` with the "jest" key OR
 }
 ```
 
-3. 
+3.
+
 - Write `index.js`
 - Write `server.js`
 - NOTE: Include `app.listen()` in `index.js`, and not in `server.js`. Jest spins-up a new server instance at every test. Since Jest is hooked up to read `server.js` in the app and `app.listen()` is in `index.js`, it won't give the error that the port is already occupied.
-
 
 4. Set-up Database
 
