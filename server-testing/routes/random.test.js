@@ -11,13 +11,33 @@ describe('GET /random', () => {
     expect(res.status).toBe(200)
   })
 
-  test('body is an array of length 20', async () => {
+  test('body is an array', async () => {
     const res = await request(app).get('/random')
-    // console.log('res body', res.body)
     expect(res.type).toBe('application/json')
     expect(res.body).toEqual(
       expect.arrayContaining([{ Id: 1, words: 'backing up violet' }])
     )
-    expect(res.body).toHaveLength(20)
+  })
+})
+
+describe('POST /random', () => {
+  test('return 201 if required fields are present', async () => {
+    const res = await request(app)
+      .post('/random')
+      .send({
+        words: 'testing'
+      })
+      .set('Accept', 'application/json')
+    expect(res.status).toBe(201)
+  })
+
+  test('return 422 if required fields are absent', async () => {
+    const res = await request(app)
+      .post('/random')
+      .send({
+        incorrectKey: 'testing'
+      })
+      .set('Accept', 'application/json')
+    expect(res.status).toBe(422)
   })
 })

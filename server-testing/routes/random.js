@@ -15,7 +15,25 @@ const getWords = async (req, res) => {
   }
 }
 
+const postWords = async (req, res) => {
+  if (!req.body.words) return res.status(422).send('Some words are required.')
+
+  try {
+    await knex('random').insert(req.body)
+    const words = await knex('random')
+    res.status(201).json(words)
+  } catch (error) {
+    error.code === '23505'
+      ? res.status(500).json({
+          error,
+          msg: `Please enter newer words. ${req.body} already exists.`
+        })
+      : res.status(500).json({ error, msg: 'Error posting new words' })
+  }
+}
+
 // routes
 router.get('/', getWords)
+router.post('/', postWords)
 
 module.exports = router
