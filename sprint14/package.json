@@ -1,0 +1,19 @@
+{
+  "name": "sprint14",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dsnair/sprint14.git",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --watch",
+    "server": "nodemon index.js"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}

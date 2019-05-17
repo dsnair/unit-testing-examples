@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -79,3 +80,9 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+||||||| merged common ancestors
+=======
+node_modules
+.DS_Store
+.vscode
+>>>>>>> sprint14/master
