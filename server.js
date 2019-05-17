@@ -31,15 +31,19 @@ const getGames = (req, res) => {
 
 const postGame = (req, res) => {
   const newGame = req.body
+  let exists = false
 
   if (!newGame.title || !newGame.genre) {
     return res.status(422).send('New game title and genre are required.')
   }
-  
+
   games.forEach(obj => {
-    if (obj.title === newGame.title)
-      return res.status(405).send('This game already exists.')
+    if (obj.title === newGame.title) {
+      exists = true
+    }
   })
+
+  if (exists) return res.status(405).send('This game already exists.')
 
   try {
     games = [...games, newGame]
