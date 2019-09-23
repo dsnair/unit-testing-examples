@@ -1,7 +1,7 @@
 // implement changes to schema
-exports.up = async function(knex, Promise) {
+exports.up = async function(knex) {
   return await knex.schema.createTable('random', table => {
-    table.increments('Id').unsigned()
+    table.increments('Id')
     table
       .string('words')
       .notNullable()
@@ -10,6 +10,6 @@ exports.up = async function(knex, Promise) {
 }
 
 // undo changes
-exports.down = async function(knex, Promise) {
+exports.down = async function(knex) {
   return await knex.schema.dropTable('random')
 }
