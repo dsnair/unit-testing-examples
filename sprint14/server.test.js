@@ -4,7 +4,7 @@ const server = require('./server')
 describe('GET /games', () => {
   test('always returns an array', async () => {
     const res = await request(server).get('/games')
-    expect(res.body).toEqual(expect.arrayContaining([]))
+    expect(res).toEqual(expect.arrayContaining([]))
   })
 
   test('returns 200', async () => {
