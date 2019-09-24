@@ -68,3 +68,25 @@ describe('POST /games', () => {
     expect(post_length).toBe(get_length + 1)
   })
 })
+
+describe('DELETE /games', () => {
+  test('returns 200 when game is deleted', async () => {
+    const res = await request(server).delete('/games/3')
+    expect(res.status).toBe(200)
+  })
+
+  test('returns 404 when game not found', async () => {
+    const res = await request(server).delete('/games/10')
+    expect(res.status).toBe(404)
+  })
+
+  test('DB size decrements when game is deleted', async () => {
+    const get = await request(server).get('/games')
+    const get_length = JSON.parse(get.text).length
+
+    const del = await request(server).delete('/games/1')
+    const del_length = JSON.parse(del.text).length
+
+    expect(del_length).toBe(get_length - 1)
+  })
+})

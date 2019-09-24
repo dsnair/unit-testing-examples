@@ -61,8 +61,20 @@ const postGame = (req, res) => {
   }
 }
 
+const deleteGame = (req, res) => {
+  for (game of games) {
+    if (game.id == req.params.id) {
+      games.splice(games.indexOf(game), 1)
+      return res.status(200).json(games)
+    }
+  }
+
+  res.status(404).send('Game not found.')
+}
+
 app.get('/games', getGames)
 app.post('/games', postGame)
+app.delete('/games/:id', deleteGame)
 app.get('/', (req, res) => res.send('🍎  🍉  🍒'))
 
 module.exports = app
