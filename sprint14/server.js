@@ -43,7 +43,9 @@ const postGame = (req, res) => {
     }
   })
 
-  if (exists) return res.status(405).send('This game already exists.')
+  if (exists) {
+    return res.status(422).send('This game already exists.')
+  }
 
   try {
     games = [...games, newGame]
