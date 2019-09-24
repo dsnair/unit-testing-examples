@@ -63,3 +63,23 @@ The following exercises are optional, but we suggest that you tackle them if you
 - [x] Add an `id` property to the game schema and write code in the server to increment it automatically. After implementing this functionality work on the following:
   - Write a `GET /games/:id` endpoint that returns the information about a single game. Respond with a 404 status code when a game is not found for the provided `id`. Add the corresponding tests for it.
   - [x] Add a `DELETE /games/:id` endpoint that can remove the corresponding game. If the game does not exist return a 404 status code. Write tests for this endpoint.
+
+## Test Coverage
+
+Type the command below in the terminal to see the test coverage report:
+
+```bash
+yarn test --coverage --watchAll=false
+```
+
+The report gives the following breakdown:
+
+1. Statement coverage - has each statement in the app been executed?
+1. Branch coverage - has each branch in each control structure (eg: if/else, switch/case) been executed?
+1. Function coverage - has each function/subroutine in the app been called?
+1. Line coverage - has each executable line been executed?
+
+Open `coverage/index.html` in a browser for more details on what's not covered:
+- Pink - statements not covered
+- Orange - functions not covered
+- Yellow - branches not covered
