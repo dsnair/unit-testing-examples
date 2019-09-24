@@ -48,7 +48,7 @@ Optional: add Jest configurations in `package.json` with the "jest" key OR
 
 - Write `index.js`
 - Write `server.js`
-- NOTE: Include `app.listen()` in `index.js`, and not in `server.js`. Jest spins-up a new server instance at every test. Since Jest is hooked up to read `server.js` in the app and `app.listen()` is in `index.js`, it won't give the error that the port is already occupied.
+- **NOTE**: Write `app.listen()` in `index.js` and not in `server.js`. Jest spins-up a new server instance at every test. Since Jest is hooked up to read `server.js` and `app.listen()` is in `index.js`, it won't give the error that the port is already occupied (`Error: listen EADDRINUSE: address already in use :::5000`).
 
 4. Set-up Database
 

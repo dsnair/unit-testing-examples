@@ -6,8 +6,6 @@ In this challenge use `Test Driven Development` to build a RESTful API using Nod
 
 ## Self-Study/Essay Questions
 
-Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
-
 1. In Jest, what are the differences between `describe()` and `it()` globals, and what are good uses for them?
 
 > The difference between them is just code organization, and thus subjective. `Describe` usually contains a collection of `it` or `test` that all test the same endpoint. This way the test results are all easier to read.
@@ -22,10 +20,9 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 ## Project Set Up
 
-- Fork and clone this repository.
-- **CD into the folder** where you downloaded the repository.
 - Run `yarn` or `npm i` to download all dependencies.
 - Type `yarn test` or `npm test` to run the tests. The `test` script is already configured.
+- **NOTE**: Write `app.listen()` in `index.js` and not in `server.js`. Jest spins-up a new server instance at every test. Since Jest is hooked up to read `server.js` and `app.listen()` is in `index.js`, it won't give the error that the port is already occupied (`Error: listen EADDRINUSE: address already in use :::5000`).
 
 ## Minimum Viable Product
 
@@ -34,7 +31,7 @@ Your finished project must include all of the following requirements:
 - [x] Use `jest` and `supertest` to write the tests.
 - Write the **tests BEFORE** writing the route handlers.
 - [x] Your API must have both `POST` and `GET` endpoints for `/games`.
-- [x] Write a **minimum** of 3 tests per endpoint.
+- [x] Write a _minimum_ of 3 tests per endpoint.
 
 Below is a product specification covering the requirements for your endpoints.
 
