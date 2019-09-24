@@ -51,4 +51,20 @@ describe('POST /games', () => {
       .set('Accept', 'application/json')
     expect(res.status).toBe(201)
   })
+
+  test('DB size increments when new game is created', async () => {
+    const get = await request(server).get('/games')
+    const get_length = JSON.parse(get.text).length
+
+    const post = await request(server)
+      .post('/games')
+      .send({
+        title: 'Badminton',
+        genre: 'Physical'
+      })
+      .set('Accept', 'application/json')
+    const post_length = JSON.parse(post.text).length
+
+    expect(post_length).toBe(get_length + 1)
+  })
 })
