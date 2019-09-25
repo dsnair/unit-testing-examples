@@ -79,7 +79,7 @@ The report gives the following breakdown:
 1. Function coverage - has each function/subroutine in the app been called?
 1. Line coverage - has each executable line been executed?
 
-Open `coverage/index.html` in a browser for more details on what's not covered:
+Open `coverage/lcov-report/index.html` in a browser for more details on what's not covered:
 - Pink - statements not covered
 - Orange - functions not covered
 - Yellow - branches not covered

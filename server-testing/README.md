@@ -1,11 +1,5 @@
 # Server-Testing
 
-## Topics
-
-- automated testing.
-- jest testing framework.
-- supertest module.
-
 ## Assignment
 
 For this project, you will use `Test Driven Development` to create a RESTful API using `Node.js` and `Express.js` that publishes a set of endpoints to manage a _resource_ of your choosing. Data can be stored in memory, adding a **test database is optional**.
@@ -28,19 +22,13 @@ yarn add jest supertest nodemon -D  # install as dev dependency
 yarn add express pg knex faker helmet dotenv
 ```
 
-Optional: add Jest configurations in `package.json` with the "jest" key OR
-
-```bash
-./node_modules/.bin/jest --init # creates jest.config.js
-```
-
 2. In `package.json`, add
 
 ```js
 "server": {
     "server": "nodemon index.js",  // for local
     "start": "node index.js",  // for production
-    "test" : "DB_ENV=testing jest --watch"
+    "test" : "DB_ENV=testing jest --watch" // for testing
 }
 ```
 
@@ -70,3 +58,23 @@ createdb random
 ./node_modules/.bin/knex migrate:latest
 ./node_modules/.bin/knex seed:run
 ```
+
+## Test Coverage
+
+Type the command below in the terminal to see the test coverage report:
+
+```bash
+yarn test --coverage --watchAll=false
+```
+
+The report gives the following breakdown:
+
+1. Statement coverage - has each statement in the app been executed?
+1. Branch coverage - has each branch in each control structure (eg: if/else, switch/case) been executed?
+1. Function coverage - has each function/subroutine in the app been called?
+1. Line coverage - has each executable line been executed?
+
+Open `coverage/lcov-report/index.html` in a browser for more details on what's not covered:
+- Pink - statements not covered
+- Orange - functions not covered
+- Yellow - branches not covered
