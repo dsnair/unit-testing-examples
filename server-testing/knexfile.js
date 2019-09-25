@@ -6,17 +6,17 @@ module.exports = {
       directory: './db/migrations'
     },
     seeds: {
-      directory: './db/seeds'
+      directory: './db/seeds/development'
     }
   },
   testing: {
     client: 'pg',
-    connection: 'postgres://localhost/random',
+    connection: 'postgres://localhost/random_test',
     migrations: {
       directory: './db/migrations'
     },
     seeds: {
-      directory: './db/seeds'
+      directory: './db/seeds/testing'
     }
   },
   production: {

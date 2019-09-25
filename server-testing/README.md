@@ -41,22 +41,32 @@ yarn add express pg knex faker helmet dotenv
 4. Set-up Database
 
 ```bash
-mkdir db db/migrations db/seeds
+mkdir db db/migrations db/seeds db/seeds/development db/seeds/testing
 touch db/knex.js
 ./node_modules/.bin/knex init  # creates 'knexfile.js'
-./node_modules/.bin/knex migrate:make random # creates /db/migrations/[timestamp]_random.js
-./node_modules/.bin/knex seed:make 01_random # creates /db/seeds/01_random.js
+
+createdb random
+createdb random_test
+
+./node_modules/.bin/knex migrate:make random  # creates /db/migrations/[timestamp]_random.js
+
+./node_modules/.bin/knex seed:make 01_random --env development # creates /db/seeds/development/01_random.js
+./node_modules/.bin/knex seed:make 01_random --env testing
 ```
 
 - Fill-in `knex.js`
 - Fill-in `knexfile.js`
 - Fill-in table schema in `/db/migrations/[timestamp]_random.js`
-- Fill-in seed data in `/db/seeds/01_random.js`
+- Fill-in seed data in `/db/seeds/development/01_random.js` and `/db/seeds/testing/01_random.js`
 
 ```bash
-createdb random
-./node_modules/.bin/knex migrate:latest
-./node_modules/.bin/knex seed:run
+# apply migrations to both databases
+./node_modules/.bin/knex migrate:latest --env development 
+./node_modules/.bin/knex migrate:latest --env testing
+
+# seed both databases
+./node_modules/.bin/knex seed:run --env development
+./node_modules/.bin/knex seed:run --env testing
 ```
 
 ## Test Coverage

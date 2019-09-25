@@ -16,7 +16,7 @@ describe('GET /random', () => {
   test('body is an array', async () => {
     const res = await request(app).get('/random')
     expect(res.type).toBe('application/json')
-    expect(res.body).toEqual(expect.arrayContaining([]))
+    expect(res).toEqual(expect.arrayContaining([]))
   })
 })
 
@@ -25,6 +25,7 @@ describe('POST /random', () => {
   beforeAll() runs once and only once in describe() block.
   .clean() wipes the database table to empty. This is why have the test database should be different from the main database.
   */
+ 
   beforeAll(async () => await knexCleaner.clean(knex))
 
   test('return 201 if new post is created', async () => {
